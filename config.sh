@@ -23,11 +23,11 @@ echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 mkdir -p /home/$user
 chown -R $user /home/$user
 
-su $user -c "dotfiles.sh"
+su $user -c "./dotfiles.sh"
 
 pacman -Syyu --noconfirm
 
-su $user -c "packages.sh"
+su $user -c "./packages.sh"
 
 echo git email:
 read gitmail
