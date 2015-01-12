@@ -1,6 +1,6 @@
 
 #build yaourt and install:
-pacman -S wget curl yajl diffutils gettext;
+sudo pacman -S wget curl yajl diffutils gettext --noconfirm;
 cd /tmp;
 wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz;
 wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz;
@@ -18,6 +18,3 @@ makepkg;
 sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm;
 cd ..;
 rm -rf yaourt;
-
-yaourt -S $(cat packages_min.txt) --noconfirm
-
