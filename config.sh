@@ -17,15 +17,15 @@ echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 locale-gen
 locale > /etc/locale.conf
 
-pacman -S sudo
-echo $user ALL=(ALL) ALL >> /etc/sudoers
+pacman -S sudo --noconfirm
+echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 
 mkdir -p /home/$user
 chown -R $user /home/$user
 
 su $user -c "dotfiles.sh"
 
-pacman -Syyu
+pacman -Syyu --noconfirm
 
 su $user -c "packages.sh"
 

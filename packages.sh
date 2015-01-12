@@ -10,12 +10,12 @@ rm yaourt.tar.gz;
 rm package-query.tar.gz;
 cd package-query;
 makepkg;
-sudo pacman -U package-query-*.pkg.tar.xz;
+sudo pacman -U package-query-*.pkg.tar.xz --noconfirm;
 cd ..;
 rm -rf package-query;
 cd yaourt;
 makepkg;
-sudo pacman -U yaourt-*.pkg.tar.xz;
+sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm;
 cd ..;
 rm -rf yaourt;
 
