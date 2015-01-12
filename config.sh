@@ -26,6 +26,7 @@ chown -R $user /home/$user
 pacman -Syyu --noconfirm
 
 ./yaourt.sh
+export user=$user
 
 su $user <<ASDF
 ./dotfiles.sh
