@@ -20,6 +20,9 @@ locale > /etc/locale.conf
 pacman -S sudo
 echo $user ALL=(ALL) ALL >> /etc/sudoers
 
+mkdir -p /home/$user
+chown -R $user /home/$user
+
 su $user -c "dotfiles.sh"
 
 pacman -Syyu
