@@ -30,7 +30,7 @@ export user=$user
 
 pacman -S stow
 su $user -c "./dotfiles.sh"
-su $user -c "yaourt -S $(cat packages_min.txt) --noconfirm"
+su $user -c "./install.sh packages_min.txt"
 
 echo git email:
 read gitmail
