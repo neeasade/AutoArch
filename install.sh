@@ -1,3 +1,3 @@
 for i in $(cat $1); do
-    echo $i;
+    yaourt -S $i --noconfirm;
 done
