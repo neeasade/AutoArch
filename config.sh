@@ -25,13 +25,11 @@ chown -R $user /home/$user
 
 pacman -Syyu --noconfirm
 
-./yaourt.sh
 export user=$user
+./yaourt.sh
 
-su $user <<ASDF
-./dotfiles.sh
-yaourt -S $(cat packages_min.txt) --noconfirm
-ASDF
+su $user -c "./dotfiles.sh"
+su $user -c "yaourt -S $(cat packages_min.txt) --noconfirm"
 
 echo git email:
 read gitmail
