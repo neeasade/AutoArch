@@ -28,6 +28,7 @@ pacman -Syyu --noconfirm
 export user=$user
 ./yaourt.sh
 
+pacman -S stow
 su $user -c "./dotfiles.sh"
 su $user -c "yaourt -S $(cat packages_min.txt) --noconfirm"
 
