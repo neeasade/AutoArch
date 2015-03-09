@@ -11,13 +11,14 @@ read user
 useradd $user
 echo password:
 passwd $user
+echo setting central time..
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 
 echo en_US.UTF-8 UTF-8 > /etc/locale.gen
 locale-gen
 locale > /etc/locale.conf
 
-pacman -S sudo base-devel --noconfirm
+pacman -S sudo base-devel stow --noconfirm
 echo "$user ALL=(ALL) ALL" >> /etc/sudoers
 
 mkdir -p /home/$user
@@ -28,17 +29,11 @@ pacman -Syyu --noconfirm
 export user=$user
 ./yaourt.sh
 
-pacman -S stow
+chown $user dotfiles.sh
 su $user -c "./dotfiles.sh"
+chown $user install.sh packages_min.txt
 su $user -c "./install.sh packages_min.txt"
 
-echo git email:
-read gitmail
-git config --global user.email "$gitmail"
-
-echo git user.name:
-read gitname
-git config --global user.name "$gitname"
 
 #enable services here:
 
