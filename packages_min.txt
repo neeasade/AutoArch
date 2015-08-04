@@ -441,6 +441,7 @@ xorg-xmodmap
 xorg-xprop
 xorg-xrandr
 xorg-xrdb
+xorg-xinit
 xorg-xrefresh
 xorg-xset
 xorg-xsetroot

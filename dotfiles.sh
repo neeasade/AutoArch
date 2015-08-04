@@ -1,4 +1,4 @@
 cd
-git clone http://github.com/$USER/dotfiles .dotfiles
+git clone http://github.com/neeasade/dotfiles .dotfiles
 cd .dotfiles
-./deploy.sh $user force
+./deploy.sh noinstall

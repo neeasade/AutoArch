@@ -1,0 +1,7 @@
+if [ -e ~/install.sh ]; then
+    echo "Install packages and dotfiles depends:"
+    echo "~/install.sh packages_min.txt"
+    echo "~/.dotfiles/deploy.sh"
+    return
+fi
+

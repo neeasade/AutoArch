@@ -34,10 +34,17 @@ su $user -c "./dotfiles.sh"
 chown $user install.sh packages_min.txt
 cp install.sh /home/$user/install.sh
 cp packages_min.txt /home/$user/packages_min.txt
+chown -R $user /home/$user #own the above
+cat bash_remind.txt /home/$user/.bashrc > /home/$user/.bashrc_tmp
+mv /home/$user/.bashrc_tmp /home/$user/.bashrc
 
 # enable services here:
 
 
-# done, but still need bootloader so friendly reminder:
-echo "All set, up to you to setup boot :)"
+echo "You will be prompted to install packages on boot."
+pacman -S gptfdisk syslinux --noconfirm
+syslinux-install_update -i -a -m
 
+# Beast man would hate this
+root_uuid="$(lsblk --output "mountpoint,uuid" | grep  "/ " | grep -oE "[^ ]+" | tail -n 1)"
+sed -i "s/\/dev\/sda3/UUID=$root_uuid/g" /boot/syslinux/syslinux.cfg
