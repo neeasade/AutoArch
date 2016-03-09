@@ -28,7 +28,7 @@ mkdir -p /home/$user
 chown -R $user /home/$user
 
 export user=$user
-./yaourt.sh
+su $user -c "./pacaur.sh"
 
 chown $user dotfiles.sh
 su $user -c "./dotfiles.sh"
